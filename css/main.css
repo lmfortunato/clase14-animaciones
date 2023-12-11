@@ -1,0 +1,337 @@
+/* Unidades de medida */
+/* vh -> viewport height */
+/* vw -> viewport width */
+/* % */
+/* rem y em */
+/* rem -> 16px */
+/* em -> 16px */
+html {
+    font-size: 62.5%;
+    /*mi rem va a pasar de medir 16px a 10px*/
+}
+
+div {
+    font-size: 20px;
+}
+
+div h1 {
+    font-size: 1em;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+header nav ul li {
+    font-size: 2rem;
+}
+
+/* Main index */
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+    margin: 1rem 3rem 3rem 3rem;
+    gap: 1rem;
+}
+
+.contenedor div {
+    height: 300px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.contenedor div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Estilos clase 14 */
+    box-shadow: 10px 11px 13px 0px rgba(0,0,0,0.62);
+}
+
+/* Estilos clase 14 */
+.img-uno{
+    position: relative;
+}
+
+.text-uno{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.679), rgba(128, 128, 128, 0.495));
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.text-uno:hover{
+    opacity: 1;
+}
+
+.card {
+    width: 90vw;
+    height: 400px;
+    background-color: darkmagenta;
+}
+
+/* ------------------------------------ */
+
+/* Media queries */
+/* Media query desde mobile hacia desktop - tablet */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+    }
+
+    header nav ul {
+        display: flex;
+        column-gap: 10px;
+    }
+
+    .contenedor {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        /* grid-template-areas: 
+        "img1 img2"
+        "img3 img3"
+        "img4 img5"
+        ; */
+    }
+
+    .img-uno {
+        /* grid-area: img1; */
+        grid-column: span 1;
+    }
+
+    .img-dos {
+        /* grid-area: img2; */
+    }
+
+    .img-tres {
+        /* grid-area: img3; */
+        grid-column: span 2;
+    }
+
+    .img-cuatro {
+        /* grid-area: img4; */
+    }
+
+    .img-cinco {
+        /* grid-area: img5; */
+    }
+
+    .card {
+        width: 350px;
+    }
+}
+
+/* Media query desde mobile hacia desktop - desktop */
+@media(min-width: 1024px) {
+    .contenedor {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 30vh);
+        /* grid-template-areas: 
+        "img1 img2 img3"
+        "img1 img4 img4"
+        "img5 img5 img5"
+        ; */
+    }
+
+    .img-uno {
+        /* grid-area: img1; */
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+
+    .img-dos {
+        /* grid-area: img2; */
+        grid-column: span 1;
+    }
+
+    .img-tres {
+        /* grid-area: img3; */
+        grid-column: span 1;
+    }
+
+    .img-cuatro {
+        /* grid-area: img4; */
+        grid-column: span 2;
+    }
+
+    .img-cinco {
+        /* grid-area: img5; */
+        grid-column: span 3;
+    }
+
+    .contenedor div {
+        height: auto;
+    }
+}
+
+/* Media query desde desktop hacia mobile - tablet */
+/* @media(max-width: 1024px){
+
+} */
+
+/* Media query desde desktop hacia mobile - mobile */
+/* @media(max-width: 768px){
+
+} */
+
+/* --------------------------------------------- */
+/* Código clase 14 */
+.gradiente {
+    height: 50vh;
+    /* background-color: chartreuse; */
+    background-image: linear-gradient(to right, deeppink 50%, deepskyblue);
+    background-image: radial-gradient(deeppink 50%, deepskyblue);
+}
+
+.gradiente-img {
+    width: 250px;
+    height: 350px;
+    margin: 30px;
+    mask-image: linear-gradient(to right, rgba(255, 255, 255, 0.784), rgba(255, 255, 255, 0.543));
+    /* -webkit-mask-image: linear-gradient(to right, rgba(255, 255, 255, 0.784), rgba(255, 255, 255, 0.543)); */
+    transition: transform 1.5s;
+}
+
+.gradiente-img:hover {
+    /* transform: translate(20px, -20px);
+    transform: translateX(20px);
+    transform: translateY(20px); */
+    /* transform: rotate(-20deg); */
+    /* transform: scale(-1.5); */
+    transform: skew(20deg, -30deg) translateX(50px);
+    cursor: pointer;
+    transition: 2s;
+}
+
+.gradiente-bg {
+    height: 80vh;
+    background: linear-gradient(to left, rgba(128, 128, 128, 0.713), rgba(255, 166, 0, 0.454)), url(./../img/img-cuatro.jpg);
+    background-size: contain;
+    /* background-image: linear-gradient(to bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12); */
+}
+
+.animacion-spinner {
+    width: 50px;
+    height: 50px;
+    border: 10px solid yellowgreen;
+    margin: 30px;
+    border-radius: 50%;
+    border-right-color: aqua;
+    animation-name: spinner;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spinner {
+    0%{
+        transform: rotate(0);
+    }
+    50%{
+        border-right-color: coral;
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.ejemplo-animacion {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    animation-name: un_efecto;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-duration: 2s;
+}
+
+@keyframes un_efecto {
+    0% {
+        width: 100px;
+    }
+
+    10% {
+        width: 50px;
+    }
+
+    25% {
+        width: 300px;
+    }
+
+    50% {
+        width: 200px;
+        background-color: red;
+    }
+
+    75% {
+        width: 300px;
+    }
+
+    100% {
+        width: 100px;
+        background-color: green;
+    }
+}
+
+/* Carousel */
+.contenedor-slider{
+    display: grid;
+    grid-template-columns: 100% 100% 100%;
+    grid-template-rows: 350px;
+    position: relative;
+    animation: carrousel 15s infinite linear;
+}
+
+.contenedor-slider img{
+    width: 100%;
+    height: 100%;
+}
+
+.slider{
+    margin: 10%;
+    overflow: hidden;
+}
+
+@keyframes carrousel{
+    from{
+        right: 0;
+    }
+    50%{
+        right: 100%;
+    }
+    99%{
+        right: 200%;
+    }
+    to{
+        right: 0;
+    }
+}
